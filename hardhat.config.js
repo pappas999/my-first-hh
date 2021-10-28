@@ -1,6 +1,7 @@
 require('dotenv').config()
 require("@nomiclabs/hardhat-ethers");
 require("./tasks/MyContractTasks.js")
+require('solidity-coverage')
 
 
 const KOVAN_RPC_URL = process.env.KOVAN_RPC_URL
@@ -17,7 +18,9 @@ module.exports = {
     }
   },
   solidity: {
-    version: "0.8.0",
+    compilers: [{version: "0.8.0"},
+    {version: "0.8.7"},
+    {version: "0.6.6"}],
     settings: {
       optimizer: {
         enabled: true,
@@ -32,6 +35,6 @@ module.exports = {
     artifacts: "./artifacts"
   },
   mocha: {
-    timeout: 20000
+    timeout: 3000000
   }
 }

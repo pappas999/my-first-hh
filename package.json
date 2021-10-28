@@ -1,11 +1,19 @@
 {
   "name": "hardhat-project",
+  "scripts": {
+    "test": "hardhat test test/unit/MyFirstContract_unit_test.js --network hardhat",
+    "test-integration": "hardhat test test/integration/MyFirstContract_integration_test.js --network kovan && hardhat test test/integration/VRFConsumer_integration_test.js --network kovan"
+  },
   "dependencies": {
+    "@chainlink/contracts": "^0.2.2",
     "dotenv": "^10.0.0"
   },
   "devDependencies": {
     "@nomiclabs/hardhat-ethers": "^2.0.2",
+    "chai": "^4.3.4",
+    "chai-bn": "^0.3.0",
     "ethers": "^5.5.1",
-    "hardhat": "^2.6.7"
+    "hardhat": "^2.6.7",
+    "solidity-coverage": "^0.7.17"
   }
 }
